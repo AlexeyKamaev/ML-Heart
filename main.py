@@ -124,18 +124,18 @@ sex = st.radio(
 
 age = st.slider(
     'Select yor age',
-    15.0, 80.0, (25.0))
+    20, 80, (25))
 
 st.write('+ RestingBP: resting blood pressure [mm Hg]')
 RestingBP = st.slider(
     'Select your RestingBP',
-    0.0, 300.0, (100.0))
+    0, 300, (100))
 st.write('RestingBP:', RestingBP)
 
 st.write('+ Cholesterol: serum cholesterol [mm/dl]')
 cholo = st.slider(
     'Select a range of values',
-    -100.0, 1000.0, (100.0))
+    -1, 1000, (100))
 st.write('Cholesterol:', cholo)
 
 
@@ -143,7 +143,7 @@ st.write('+ MaxHR: maximum heart rate achieved')
 
 hr = st.slider(
     'Select a range of values',
-    0.0, 250.0, (220-age))
+    0, 250, (220-age))
 
 st.write('MaxHR:', hr)
 
@@ -192,12 +192,15 @@ input_data = [age,sex,chp,RestingBP,cholo,fbs,recg,hr,ang,old,st_Slope]
 
 data = pd.DataFrame(input_data).T.rename(columns={0:'Age',1:'Sex',2:'ChestPainType',3:'RestingBP',4:'Cholesterol',
 5:'FastingBS',6:'RestingECG',7:'MaxHR',8:'ExerciseAngina',9:'Oldpeak',10:'ST_Slope'})
-p = xx.predict(data)
+
 
 x = st.button("Get me answer", type="primary")
 
 if x:
+    p = xx.predict(data)
+
     if p == 1:
         st.page_link("pages/notok.py", label='click on me!', icon='🫀')
+
     else:
         st.page_link("pages/ok.py", label="click on me!", icon ='🫀' )
