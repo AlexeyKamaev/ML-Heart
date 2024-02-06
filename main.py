@@ -102,6 +102,13 @@ import streamlit as st
 
 
 xx = joblib.load('ml_pipeline.pkl')
+st.markdown("""
+    <style>
+        section[data-testid="stSidebar"][aria-expanded="true"]{
+            display: none;
+        }
+    </style>
+    """, unsafe_allow_html=True)
 
 
 
