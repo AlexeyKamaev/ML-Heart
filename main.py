@@ -198,6 +198,6 @@ x = st.button("Get me answer", type="primary")
 
 if x:
     if p == 1:
-        st.page_link("pages/ok.py", label='click on me!', icon='🫀')
+        st.page_link("pages/notok.py", label='click on me!', icon='🫀')
     else:
         st.page_link("pages/ok.py", label="click on me!", icon ='🫀' )
